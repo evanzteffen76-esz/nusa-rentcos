@@ -1,0 +1,14 @@
+# Localization contract for the mobile client.
+#
+# `app_id.arb` is the template and therefore the fallback for every other
+# locale, so a key that has not been translated yet still renders in
+# Indonesian rather than showing the raw key.
+arb-dir: lib/l10n
+template-arb-file: app_id.arb
+output-localization-file: app_localizations.dart
+output-class: AppLocalizations
+output-dir: lib/l10n/generated
+nullable-getter: false
+
+# Keep the generated file out of the analyzer while it is being written.
+analyze: false

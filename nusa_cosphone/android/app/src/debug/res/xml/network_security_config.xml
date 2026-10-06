@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug network policy.
+
+  A physical handset cannot resolve the developer's `.test` domain and the
+  machine's address on the shared Wi-Fi is not known until it is typed into
+  the in-app API settings screen, so the set of hosts that can be plain HTTP
+  is not knowable at build time. Debug builds therefore permit cleartext
+  generally and additionally trust user-installed roots, which is what makes
+  the self-signed Herd certificate usable from a device.
+
+  The release policy in src/main/res/xml is the opposite, and is the one that
+  ships.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
